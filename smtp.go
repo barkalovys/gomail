@@ -81,7 +81,7 @@ func (d *Dialer) Dial() (SendCloser, error) {
 	if !d.SSL {
 		if ok, _ := c.Extension("STARTTLS"); ok {
 			if err := c.StartTLS(d.tlsConfig()); err != nil {
-				c.Close()
+				c.Quit()
 				return nil, err
 			}
 		}
@@ -106,7 +106,7 @@ func (d *Dialer) Dial() (SendCloser, error) {
 
 	if d.Auth != nil {
 		if err = c.Auth(d.Auth); err != nil {
-			c.Close()
+			c.Quit()
 			return nil, err
 		}
 	}
@@ -169,15 +169,11 @@ func (c *smtpSender) Send(from string, to []string, msg io.WriterTo) error {
 	}
 
 	if _, err = msg.WriteTo(w); err != nil {
-		w.Close()
+		c.Close()
 		return err
 	}
 
 	return w.Close()
-}
-
-func (c *smtpSender) Close() error {
-	return c.Quit()
 }
 
 // Stubbed out for tests.

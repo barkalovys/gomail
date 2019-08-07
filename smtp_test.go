@@ -36,7 +36,6 @@ func TestDialer(t *testing.T) {
 		"Data",
 		"Write message",
 		"Close writer",
-		"Quit",
 		"Close",
 	})
 }
@@ -52,7 +51,6 @@ func TestDialerSSL(t *testing.T) {
 		"Data",
 		"Write message",
 		"Close writer",
-		"Quit",
 		"Close",
 	})
 }
@@ -73,7 +71,6 @@ func TestDialerConfig(t *testing.T) {
 		"Data",
 		"Write message",
 		"Close writer",
-		"Quit",
 		"Close",
 	})
 }
@@ -92,7 +89,6 @@ func TestDialerSSLConfig(t *testing.T) {
 		"Data",
 		"Write message",
 		"Close writer",
-		"Quit",
 		"Close",
 	})
 }
@@ -111,7 +107,6 @@ func TestDialerNoAuth(t *testing.T) {
 		"Data",
 		"Write message",
 		"Close writer",
-		"Quit",
 		"Close",
 	})
 }
@@ -133,7 +128,6 @@ func TestDialerTimeout(t *testing.T) {
 		"Data",
 		"Write message",
 		"Close writer",
-		"Quit",
 		"Close",
 	})
 }
